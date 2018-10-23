@@ -94,7 +94,7 @@ func About(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
-//Hello eturns the ReST API response from http://localhost:8080/hello/younamehere
+//Hello returns the ReST API response from http://localhost:8080/hello/younamehere
 func Hello(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	name := vars["name"]

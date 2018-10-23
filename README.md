@@ -5,7 +5,7 @@ container name and IP address to aid in load balancer verification and debugging
 
 This TEST Rest API is also useful for Docker/Kubernetes teaching demonstrations
 allowing the user to demonstrate that each instance of the container has a
-separate and distinct name and IP address.
+separate and distinct host name and IP address.
 
 This API uses gorilla/mux, a powerful URL router and dispatcher for golang.
 See: http://www.gorillatoolkit.org/pkg/mux for more information.
@@ -14,13 +14,13 @@ This container is built using the official golang Alpine container as a base.
 
 ## Build the Application
 
-To run the application, first build the application with the following command.
+To run the application, first build the application with the following command:
+
+`go build`
 
 Please insure that you have gorilla/mux installed in your golang environment.
 Refer to the golang documentation for more information on installing golang
 modules.
-
-`go build`
 
 ## Run the Application
 

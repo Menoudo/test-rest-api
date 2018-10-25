@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: testrestapi
-        image: testrestapi:latest
+        image: vanapagan/test-rest-api # pull image from Docker hub (for ease of use)
         ports:
         - containerPort: 8080

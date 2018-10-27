@@ -71,7 +71,7 @@ func Myhostname(w http.ResponseWriter, r *http.Request) {
 	}
 	response := myAPIStructure{
 		Code:          RandStringBytesMask(codeLength),
-		Message:       "My hostname is " + name + " and my IP address is [" + ip + "]",
+		Message:       name + " [" + ip + "]",
 		MessageFormat: "text"}
 	json.NewEncoder(w).Encode(response)
 }

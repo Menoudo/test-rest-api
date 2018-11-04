@@ -1,4 +1,4 @@
-FROM golang:1.11.1-alpine
+FROM golang:1.11.2-alpine
 MAINTAINER Vanapagan <olddevil@vanapagan.com>
 EXPOSE 8080
 RUN apk add --update git; \

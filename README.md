@@ -31,11 +31,12 @@ Then execute the build with the following command:
 ## Test the Application
 
 To test out the container listening on port 8080, use these URLs:
-
-`curl http://localhost:8080/about`
-`curl http://localhost:8080/test`
-`curl http://localhost:8080/hostname`
-`curl http://localhost:8080/hello/Vanapagan`
+```sh
+curl http://localhost:8080/about
+curl http://localhost:8080/test
+curl http://localhost:8080/hostname
+curl http://localhost:8080/hello/Vanapagan
+```
 
 The random value for "Code" will change with each execution to help you insure
 you are not seeing cached results in your browser.
@@ -57,19 +58,20 @@ To run the image, execute the following commands to create the containers:
 ## Test the Docker containers
 
 To test out the container listening on port 8080, use these URLs:
-
-`curl http://localhost:8080/about`
-`curl http://localhost:8080/test`
-`curl http://localhost:8080/hostname`
-`curl http://localhost:8080/hello/Vanapagan`
+```sh
+curl http://localhost:8080/about
+curl http://localhost:8080/test
+curl http://localhost:8080/hostname
+curl http://localhost:8080/hello/Vanapagan
+```
 
 To test out the container listening on port 8081, use these URLs:
-
-`curl http://localhost:8081/about`
-`curl http://localhost:8081/test`
-`curl http://localhost:8081/hostname`
-`curl http://localhost:8081/hello/Vanapagan`
-
+```sh
+curl http://localhost:8081/about
+curl http://localhost:8081/test
+curl http://localhost:8081/hostname
+curl http://localhost:8081/hello/Vanapagan
+```
 # Testing on Kubernetes
 
 ## Create the service for the deployments

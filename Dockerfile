@@ -1,4 +1,4 @@
-FROM golang:1.14-alpine
+FROM golang:1.15-alpine
 MAINTAINER Vanapagan <olddevil@vanapagan.com>
 EXPOSE 8080
 RUN apk add --update git; \
@@ -12,7 +12,7 @@ FROM alpine:latest
 LABEL vendor=Vanapagan\ Software \
       com.example.is-production="Yes" \
       com.example.version="1.0.1" \
-      com.example.release-date="2020-06-30"
+      com.example.release-date="2020-07-01"
 RUN apk --no-cache add ca-certificates
 WORKDIR /app
 COPY --from=0 /go/test-rest-api-go/test-rest-api-go .

@@ -15,7 +15,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-const codeLength = 10
+const codeLength = 16
 const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 const (
 	letterIdxBits = 6                    // 6 bits to represent a letter index

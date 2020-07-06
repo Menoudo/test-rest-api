@@ -12,7 +12,7 @@ FROM alpine:latest
 LABEL vendor=Vanapagan\ Software \
       com.example.is-production="Yes" \
       com.example.version="1.0.1" \
-      com.example.release-date="2020-07-01"
+      com.example.release-date="2020-07-06"
 RUN apk --no-cache add ca-certificates
 WORKDIR /app
 COPY --from=0 /go/test-rest-api-go/test-rest-api-go .

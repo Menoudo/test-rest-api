@@ -1,5 +1,4 @@
-FROM golang:1.15.8-alpine
-MAINTAINER Vanapagan <olddevil@vanapagan.com>
+FROM golang:1.16.0-alpine
 EXPOSE 8080
 RUN apk add --update git; \
     mkdir -p ${GOPATH}/test-rest-api-go; \
@@ -8,7 +7,7 @@ WORKDIR ${GOPATH}/test-rest-api-go/
 COPY test-rest-api.go ${GOPATH}/test-rest-api-go/
 RUN go build -o test-rest-api-go .
 #
-FROM golang:1.15.8-alpine
+FROM golang:1.16.0-alpine
 LABEL vendor=Vanapagan\ Software \
       com.example.is-production="Yes" \
       com.example.version="1.0.1" \

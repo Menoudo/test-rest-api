@@ -1,4 +1,4 @@
-// Copyright 2018 by Gregory Mirsky. All rights reserved.
+// Copyright 2018-2021 by Gregory Mirsky. All rights reserved.
 // Use of this source code is governed by the Apache 2.0
 // license that can be found in the LICENSE file.
 
@@ -24,11 +24,16 @@ const (
 
 func main() {
 	myRouter := mux.NewRouter().StrictSlash(true)
-	myRouter.HandleFunc("/about", About)
-	myRouter.HandleFunc("/test", Test)
-	myRouter.HandleFunc("/hello/{name}", Hello)
-	myRouter.HandleFunc("/hostname", Myhostname)
-	log.Fatal(http.ListenAndServe(":8080", myRouter)) //Port ==> 23450
+	myRouter.HandleFunc("/about",
+		About)
+	myRouter.HandleFunc("/test",
+		Test)
+	myRouter.HandleFunc("/hello/{name}",
+		Hello)
+	myRouter.HandleFunc("/hostname",
+		Myhostname)
+	log.Fatal(http.ListenAndServe(":8080",
+		myRouter)) //Port ==> 23450
 }
 
 //RandStringBytesMask returns random alphabetical string to be used as a

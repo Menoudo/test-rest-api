@@ -13,8 +13,8 @@ RUN cd ${GOPATH}/test-rest-api-go/ && \
 FROM golang:1.17.2-alpine
 LABEL vendor=Vanapagan\ Software \
       com.example.is-production="Yes" \
-      com.example.version="1.0.2" \
-      com.example.release-date="2021-05-10"
+      com.example.version="1.17.2" \
+      com.example.release-date="2021-10-27"
 RUN apk --no-cache add ca-certificates
 WORKDIR /app
 COPY --from=0 /go/test-rest-api-go/test-rest-api-go .

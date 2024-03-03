@@ -103,7 +103,7 @@ func About(w http.ResponseWriter, r *http.Request) {
 
 // Hello returns the ReST API response from http://localhost:8080/hello/younamehere
 func jsonResp(w http.ResponseWriter, r *http.Request) {
-	name := r.Form.Get("name")
+	name := r.URL.Query().Get("name")
 	if name == "nadya" {
 		name = "Nadya sweet ass)"
 	}

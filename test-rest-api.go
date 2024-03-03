@@ -32,12 +32,14 @@ func main() {
 		Hello)
 	myRouter.HandleFunc("/hostname",
 		Myhostname)
+	myRouter.HandleFunc("/json",
+		jsonResp)
 	log.Fatal(http.ListenAndServe(":8080",
 		myRouter)) //Port ==> 23450
 }
 
-//RandStringBytesMask returns random alphabetical string to be used as a
-//transaction code.
+// RandStringBytesMask returns random alphabetical string to be used as a
+// transaction code.
 func RandStringBytesMask(n int) string {
 	b := make([]byte, n)
 	for i := 0; i < n; {
@@ -49,7 +51,7 @@ func RandStringBytesMask(n int) string {
 	return string(b)
 }
 
-//myAPIStructure structure to pass to JSON NewEncoder
+// myAPIStructure structure to pass to JSON NewEncoder
 type myAPIStructure struct {
 	Code          string `json:"code"`
 	Message       string `json:"message"`
@@ -81,7 +83,7 @@ func Myhostname(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
-//Test returns the ReST API response from http://localhost:8080/test
+// Test returns the ReST API response from http://localhost:8080/test
 func Test(w http.ResponseWriter, r *http.Request) {
 	response := myAPIStructure{
 		Code:          RandStringBytesMask(codeLength),
@@ -90,7 +92,7 @@ func Test(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
-//About returns the ReST API response from http://localhost:8080/about
+// About returns the ReST API response from http://localhost:8080/about
 func About(w http.ResponseWriter, r *http.Request) {
 	response := myAPIStructure{
 		Code:          RandStringBytesMask(codeLength),
@@ -99,7 +101,21 @@ func About(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(response)
 }
 
-//Hello returns the ReST API response from http://localhost:8080/hello/younamehere
+// Hello returns the ReST API response from http://localhost:8080/hello/younamehere
+func jsonResp(w http.ResponseWriter, r *http.Request) {
+	name := r.Form.Get("name")
+	if name == "nadya" {
+		name = "Nadya sweet ass)"
+	}
+	w.Header().Add("Content-Type", "application/json")
+	response := myAPIStructure{
+		Code:          RandStringBytesMask(codeLength),
+		Message:       "Hello! " + name,
+		MessageFormat: "text"}
+	json.NewEncoder(w).Encode(response)
+}
+
+// Hello returns the ReST API response from http://localhost:8080/hello/younamehere
 func Hello(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	name := vars["name"]

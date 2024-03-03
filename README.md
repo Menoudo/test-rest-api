@@ -62,6 +62,7 @@ To test out the container listening on port 8080, use these URLs:
 curl http://localhost:8080/about
 curl http://localhost:8080/test
 curl http://localhost:8080/hostname
+curl http://localhost:8080/json?name=test
 curl http://localhost:8080/hello/Vanapagan
 ```
 
@@ -72,28 +73,3 @@ curl http://localhost:8081/test
 curl http://localhost:8081/hostname
 curl http://localhost:8081/hello/Vanapagan
 ```
-# Testing on Kubernetes
-
-## Create the service for the deployments
-
-`kubectl create -f test-rest-api-service.yaml`
-
-## Verify the service has been created
-
-`kubectl get services`
-
-## Create Kubernetes deployment with three (3) replicas
-
-`kubectl create -f test-rest-api-deployment.yaml`
-
-## Get the Kubernetes deployments
-
-`kubectl get deployments`
-
-## Get the pods from the deployment
-
-`kubectl get pods --show-labels`
-
-## Test the responses.
-
-`curl  xxx.xxx.xxx.xxx:8080/hostname`

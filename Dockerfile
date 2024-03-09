@@ -1,7 +1,7 @@
 FROM golang:1.22.1-alpine3.19
 EXPOSE 8080
 RUN apk add --update git; \
-    apl add curl; \
+    apk add curl; \
     mkdir -p ${GOPATH}/test-rest-api-go
 WORKDIR ${GOPATH}/test-rest-api-go/
 COPY test-rest-api.go ${GOPATH}/test-rest-api-go/

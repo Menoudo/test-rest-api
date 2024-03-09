@@ -1,4 +1,4 @@
-FROM golang:1.17.8-alpine
+FROM golang:1.21.1-alpine
 EXPOSE 8080
 RUN apk add --update git; \
     mkdir -p ${GOPATH}/test-rest-api-go; \
@@ -10,7 +10,7 @@ RUN cd ${GOPATH}/test-rest-api-go/ && \
     go get -u github.com/gorilla/mux && \
     go build -o test-rest-api-go .
 #
-FROM golang:1.17.8-alpine
+FROM golang:1.21.1-alpine
 LABEL vendor=Menoudo\ Software \
       com.example.is-production="Yes" \
       com.example.version="1.00.00" \

@@ -6,9 +6,10 @@ RUN apk add --update git; \
 WORKDIR ${GOPATH}/test-rest-api-go/
 COPY test-rest-api.go ${GOPATH}/test-rest-api-go/
 RUN cd ${GOPATH}/test-rest-api-go/ && \
-    go env -w GO111MODULE=auto && \
-    go get -u github.com/gorilla/mux && \
     go build -o test-rest-api-go .
+RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.56.2
+# TODO Run linter
+
 #
 FROM golang:1.21.1-alpine
 LABEL vendor=Menoudo\ Software \

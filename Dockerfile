@@ -1,17 +1,17 @@
-FROM golang:1.21.1-alpine
+FROM golang:1.22.1-alpine3.19
 EXPOSE 8080
 RUN apk add --update git; \
     mkdir -p ${GOPATH}/test-rest-api-go
 WORKDIR ${GOPATH}/test-rest-api-go/
 COPY test-rest-api.go ${GOPATH}/test-rest-api-go/
-COPY go.mod ${GOPATH}/test-rest-api-go/
+COPY go.* ${GOPATH}/test-rest-api-go/
 RUN cd ${GOPATH}/test-rest-api-go/ && \
     go build -o test-rest-api-go .
 RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.56.2
 # TODO Run linter
 
 #
-FROM golang:1.21.1-alpine
+FROM golang:1.22.1-alpine3.19
 LABEL vendor=Menoudo\ Software \
       com.example.is-production="Yes" \
       com.example.version="1.00.00" \

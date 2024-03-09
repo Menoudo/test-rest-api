@@ -23,8 +23,6 @@ stages:          # List of stages for jobs, and their order of execution
 
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
-  before_script:
-    - docker info
   script:
     - echo "Build docker image..."
     - docker build -f Dockerfile . -t testrestapi:latest

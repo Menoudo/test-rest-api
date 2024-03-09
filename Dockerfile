@@ -5,6 +5,7 @@ RUN apk add --update git; \
     go get -u github.com/gorilla/mux
 WORKDIR ${GOPATH}/test-rest-api-go/
 COPY test-rest-api.go ${GOPATH}/test-rest-api-go/
+COPY go.mod ${GOPATH}/test-rest-api-go/
 RUN cd ${GOPATH}/test-rest-api-go/ && \
     go build -o test-rest-api-go .
 RUN curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.56.2

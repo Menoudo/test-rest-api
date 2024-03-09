@@ -11,10 +11,10 @@ RUN cd ${GOPATH}/test-rest-api-go/ && \
     go build -o test-rest-api-go .
 #
 FROM golang:1.17.8-alpine
-LABEL vendor=Vanapagan\ Software \
+LABEL vendor=Menoudo\ Software \
       com.example.is-production="Yes" \
-      com.example.version="1.17.8" \
-      com.example.release-date="2022-03-08"
+      com.example.version="1.00.00" \
+      com.example.release-date="2024-03-09"
 RUN apk --no-cache add ca-certificates
 WORKDIR /app
 COPY --from=0 /go/test-rest-api-go/test-rest-api-go .
